@@ -8,10 +8,18 @@ class Hamburgers {
     return this.toppingsArr.push(stuffing);
   }
   calculateCalories() {
-    return this.size.calories + this.stuffing.calories;
+    return (
+      this.size.calories +
+      this.stuffing.calories +
+      this.toppingsArr.reduce((sum, current) => sum + current.calories, 0)
+    );
   }
   calculatePrice() {
-    return this.size.price + this.stuffing.price;
+    return (
+      this.size.price +
+      this.stuffing.price +
+      this.toppingsArr.reduce((sum, current) => sum + current.price, 0)
+    );
   }
 }
 
